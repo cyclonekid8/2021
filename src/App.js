@@ -5,6 +5,8 @@ import View from './components/View';
 import Login from './components/Login';
 import LoginApi from './api/LoginAPI';
 import Balance from './components/Balance';
+import Price from './components/Price';
+import Historical from './components/Historical';
 
 
 class App extends React.Component {
@@ -43,9 +45,11 @@ class App extends React.Component {
                     </Route>
                     <Route path="/price">
                         <Nav road="/price"/>
+                        <Price />
                     </Route>
                     <Route path="/historical">
                         <Nav road="/historical"/>
+                        <Historical/>
                     </Route>
                     <Route path="/pasttransaction">
                         <Nav road="/pasttransaction"/>
