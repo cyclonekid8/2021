@@ -3,7 +3,7 @@ import {withRouter} from 'react-router-dom';
 
 class Nav extends React.Component {
     
-    state={ clickedon : false,road:'',acckey:this.props.location.state.data.accountKey};
+    state={ clickedon : false,road:'',acckey:this.props.location.state.data};
 
     
     clicked = () => {

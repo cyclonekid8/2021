@@ -16,7 +16,7 @@ class App extends React.Component {
         });
         this.setState({response: loggedin});
         console.log(loggedin.data);
-        this.props.history.push({pathname:"/view",state:{data:loggedin.data}})
+        this.props.history.push({pathname:"/view",state:{data:loggedin.data,user,pass}})
     }
     
     

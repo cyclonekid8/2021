@@ -6,7 +6,7 @@ import LoginAPI from '../api/LoginAPI';
 class Balance extends React.Component {
     
 
-    state={assetbalance:'',cashbalance:'',clicked:false};
+    state={assetbalance:'',cashbalance:'',clicked:false,called:false};
     
     Balances = async(obj) => {
         
@@ -16,14 +16,18 @@ class Balance extends React.Component {
         else {
             this.setState({clicked:true});
         }
-        console.log(obj);
-        const details= await LoginAPI.post("/balance",{
-            'accountKey':obj
-        });
-        console.log(details);
-        this.setState({assetbalance:details.data.assetBalance});
-        this.setState({cashbalance:details.data.cashBalance})
-        console.log(details);
+        
+        if(this.state.called===false) {
+            const details= await LoginAPI.post("/balance",{
+                'accountKey':obj
+            });
+           
+            this.setState({called:true});
+            this.setState({assetbalance:details.data.assetBalance});
+            this.setState({cashbalance:details.data.cashBalance})
+           
+        }
+
        
     }
     
@@ -31,20 +35,21 @@ class Balance extends React.Component {
     render() {
 
     
-        const obj=this.props.location.state.data;
+        const obj=this.props.location.state.data.accountKey;
         return (
-            <div className="ui container">
-                {this.state.clicked ? 
-                <div>
-                    <div className="ui container">
-                        {this.state.assetbalance}
-                        <hr/>
-                        {this.state.cashbalance}
-                    </div>
-                    <button onClick={(e)=>this.Balances(obj)}>Hide</button>
-                </div>:<button onClick={(e)=>this.Balances(obj)}>Show</button>}
-            </div>
-
+            <div>
+                <div className="ui container">
+                    {this.state.clicked ? 
+                    <div>
+                        <div className="ui container">
+                            Your asset balance is : {this.state.assetbalance}
+                            <hr/>
+                            Your cash balance is : {this.state.cashbalance}
+                        </div>
+                        <button className="ui button" onClick={(e)=>this.Balances(obj)}>Hide</button>
+                    </div>:<button className="ui button" onClick={(e)=>this.Balances(obj)}>Show</button>}
+                </div>
+            </div>                
         )
     }
 }
