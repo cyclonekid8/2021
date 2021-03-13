@@ -7,6 +7,8 @@ import LoginApi from './api/LoginAPI';
 import Balance from './components/Balance';
 import Price from './components/Price';
 import Historical from './components/Historical';
+import Past from './components/Past';
+import Buy from './components/Buy';
 
 
 class App extends React.Component {
@@ -53,9 +55,14 @@ class App extends React.Component {
                     </Route>
                     <Route path="/pasttransaction">
                         <Nav road="/pasttransaction"/>
+                        <Past/>
                     </Route>
                     <Route path="/buyandsell">
-                        <Nav road="buyandsell"/>
+                        <Nav road="/buyandsell"/>
+                        <Buy/>
+                    </Route>
+                    <Route path="/logout">
+                        <Login onsubmit={this.LoggingIn}/>
                     </Route>
                 </Switch>
             </div>

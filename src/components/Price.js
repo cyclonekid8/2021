@@ -1,8 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import LoginAPI from '../api/LoginAPI';
-import axios from 'axios';
-import { Date } from 'prismic-reactjs';
+
+
 
 
 class Price extends React.Component {
@@ -10,11 +10,9 @@ class Price extends React.Component {
     
     
     call =async()=> {
-        var unix = Math.round(+new Date()/1000);
-        const price=await LoginAPI.post("/pricing/current",{
-            timestamp:unix
-        });
+        const price=await LoginAPI.post("/pricing/current");
         return price;
+
     }
         
 
@@ -23,9 +21,9 @@ class Price extends React.Component {
         console.log(data);
 
         return (
-            <div>
+            <button className="ui button" >
                 Price
-            </div>
+            </button>
         );
     }
 }

@@ -57,7 +57,12 @@ class Nav extends React.Component {
             <button className="ui button" onClick={(e)=>this.Update("/buyandsell")}>
                Buy and sell assets
             </button>
-        </div>);
+            <button className="ui button" onClick={(e)=>this.Update("/logout")}>
+                Logout
+            </button>
+            <hr/>
+        </div>
+        );
     }
 }
 export default withRouter(Nav);
