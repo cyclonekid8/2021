@@ -7,6 +7,7 @@ function View(props) {
     
     
     const initialresp = props.location.state.data;
+    console.log(initialresp);
     const [peekProfile, setPeekProfile] = useState(false);
     
     const fullProfile = Object.entries(initialresp).map(([key,value])=>{

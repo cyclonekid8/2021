@@ -5,6 +5,10 @@ import View from './components/View';
 import Login from './components/Login';
 import LoginApi from './api/LoginAPI';
 import Balance from './components/Balance';
+import Price from './components/Price';
+import Historical from './components/Historical';
+import Past from './components/Past';
+import Buy from './components/Buy';
 
 
 class App extends React.Component {
@@ -16,7 +20,7 @@ class App extends React.Component {
         });
         this.setState({response: loggedin});
         console.log(loggedin.data);
-        this.props.history.push({pathname:"/view",state:{data:loggedin.data}})
+        this.props.history.push({pathname:"/view",state:{data:loggedin.data,user,pass}})
     }
     
     
@@ -43,15 +47,22 @@ class App extends React.Component {
                     </Route>
                     <Route path="/price">
                         <Nav road="/price"/>
+                        <Price />
                     </Route>
                     <Route path="/historical">
                         <Nav road="/historical"/>
+                        <Historical/>
                     </Route>
                     <Route path="/pasttransaction">
                         <Nav road="/pasttransaction"/>
+                        <Past/>
                     </Route>
                     <Route path="/buyandsell">
-                        <Nav road="buyandsell"/>
+                        <Nav road="/buyandsell"/>
+                        <Buy/>
+                    </Route>
+                    <Route path="/logout">
+                        <Login onsubmit={this.LoggingIn}/>
                     </Route>
                 </Switch>
             </div>

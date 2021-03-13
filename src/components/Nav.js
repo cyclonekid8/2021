@@ -1,9 +1,10 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom';
+import LoginAPI from '../api/LoginAPI';
 
 class Nav extends React.Component {
     
-    state={ clickedon : false,road:'',acckey:this.props.location.state.data.accountKey};
+    state={ clickedon : false,road:'',acckey:this.props.location.state.data};
 
     
     clicked = () => {
@@ -14,6 +15,11 @@ class Nav extends React.Component {
             this.setState({clickedon:false});
         }
     }
+    call=async()=>{
+           const price = await LoginAPI.post("/pricing/current")
+           return price;
+
+    };
     Update = (buttonvalue) =>{
         const path=this.props.road
         if(path===buttonvalue) {
@@ -21,7 +27,9 @@ class Nav extends React.Component {
         }
         else {
             console.log(this.state.acckey);
+
             this.props.history.push({pathname:buttonvalue,state:{data:this.state.acckey}});
+            
         }
     }
     render() {
@@ -49,7 +57,12 @@ class Nav extends React.Component {
             <button className="ui button" onClick={(e)=>this.Update("/buyandsell")}>
                Buy and sell assets
             </button>
-        </div>);
+            <button className="ui button" onClick={(e)=>this.Update("/logout")}>
+                Logout
+            </button>
+            <hr/>
+        </div>
+        );
     }
 }
 export default withRouter(Nav);
