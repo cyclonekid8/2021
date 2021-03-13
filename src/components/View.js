@@ -30,11 +30,15 @@ function View(props) {
         <div>
             
             
-        {peekProfile ? <table className='ui celled table'>
-                <tbody>
-                {fullProfile}
-                </tbody>
-            </table> : <button className='ui button primary' onClick={()=>{setPeekProfile(true)}}>View User Details</button>}
+        {peekProfile ? <div>
+
+                <button className="ui button grey" onClick={(e)=>setPeekProfile(false)}>Hide</button>
+                <table className='ui celled table'>
+                    <tbody>
+                    {fullProfile}
+                    </tbody>
+                </table> 
+            </div>: <button className='ui button light green' onClick={()=>{setPeekProfile(true)}}>View User Details</button>}
             
         </div>
     );

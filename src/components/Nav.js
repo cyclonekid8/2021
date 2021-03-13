@@ -38,26 +38,26 @@ class Nav extends React.Component {
         console.log(this.state.acckey);
         return (
         <div>
-            <button className="ui button" onClick={(e)=>this.Update("/view")}>
+            <button className="ui button light blue" onClick={(e)=>this.Update("/view")}>
                 <label>User details</label>
                 
             </button>
-            <button className="ui button" onClick={(e)=>this.Update("/balance")}>
+            <button className="ui button light blue" onClick={(e)=>this.Update("/balance")}>
                 <label>wallet balance</label>
             </button>
-            <button className="ui button" onClick={(e)=>this.Update("/price")}>
+            <button className="ui button light blue" onClick={(e)=>this.Update("/price")}>
                 <label>Current pricing of assets</label>
             </button>
-            <button className="ui button" onClick={(e)=>this.Update("/historical")}>
+            <button className="ui button light blue" onClick={(e)=>this.Update("/historical")}>
                 Historical pricing of assets
             </button>
-            <button className="ui button" onClick={(e)=>this.Update("/pasttransaction")}>
+            <button className="ui button light blue" onClick={(e)=>this.Update("/pasttransaction")}>
                 View past transactions
             </button>
-            <button className="ui button" onClick={(e)=>this.Update("/buyandsell")}>
+            <button className="ui button light blue" onClick={(e)=>this.Update("/buyandsell")}>
                Buy and sell assets
             </button>
-            <button className="ui button" onClick={(e)=>this.Update("/logout")}>
+            <button className="ui button brown" onClick={(e)=>this.Update("/logout")}>
                 Logout
             </button>
             <hr/>

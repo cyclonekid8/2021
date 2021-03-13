@@ -46,8 +46,8 @@ class Balance extends React.Component {
                             <hr/>
                             Your cash balance is : {this.state.cashbalance}
                         </div>
-                        <button className="ui button" onClick={(e)=>this.Balances(obj)}>Hide</button>
-                    </div>:<button className="ui button" onClick={(e)=>this.Balances(obj)}>Show</button>}
+                        <button className="ui button grey" onClick={(e)=>this.Balances(obj)}>Hide</button>
+                    </div>:<button className="ui button green" onClick={(e)=>this.Balances(obj)}>Show</button>}
                 </div>
             </div>                
         )
