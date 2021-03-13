@@ -93,7 +93,7 @@ class Historical extends React.Component {
                <div>
                     {this.state.clicked ? 
                     <div>
-                        <button className="ui button" onClick={(e)=>this.call()} >
+                        <button className="ui button grey" onClick={(e)=>this.call()} >
                             Hide
                             
                         </button> 
@@ -111,7 +111,7 @@ class Historical extends React.Component {
                         <label className="ui label" onClick={(e)=> this.increment()}>Next Page</label>
                     </div>: 
                     <div>    
-                        <button className="ui button" onClick={(e)=>this.call()}>
+                        <button className="ui button light green" onClick={(e)=>this.call()}>
                             View historical pricing
                         </button>
 

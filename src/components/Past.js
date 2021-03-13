@@ -55,7 +55,7 @@ class Past extends React.Component {
         return (
             <div>
                 {this.state.view ? <div>
-                <button className="ui button" onClick={(e)=>this.Toggle()}>
+                <button className="ui button grey" onClick={(e)=>this.Toggle()}>
                     Hide
                 </button>
                 <table className="ui celled table">
@@ -75,7 +75,7 @@ class Past extends React.Component {
                     </tbody>
                 </table>
                 
-                </div> : <button className="ui button" onClick={(e)=>this.Toggle()}>Show</button> }
+                </div> : <button className="ui button green" onClick={(e)=>this.Toggle()}>Show</button> }
             </div>
         );
     }
